@@ -147,7 +147,7 @@ const HomePage: React.FC = () =>
               {
                 list.map((item: any, index: number) =>
                 {
-                  return (<Col span={6} key={index}>
+                  return (<Col xs={24} sm={24} md={6} key={index}>
                     <Card title={item.title} bordered={false}>
                       <div className='css-eyizcg'>
                         <img src={item.img} alt="" />
