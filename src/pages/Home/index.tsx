@@ -1,5 +1,5 @@
 import { useModel } from '@umijs/max';
-import { Card, Col, Row, Spin, Tabs, FloatButton, Empty, Divider } from 'antd';
+import { Card, Col, Row, Spin, Tabs, Carousel, FloatButton, Empty, Divider } from 'antd';
 import
   {
     ProFormSelect,
@@ -201,11 +201,11 @@ const HomePage: React.FC = () =>
               display: 'none',
             },
           },
-          // submitButtonProps: {
-          //   style: {
-          //     display: 'none',
-          //   },
-          // },
+          submitButtonProps: {
+            style: {
+              display: 'none',
+            },
+          },
         }}
       >
         <h2>{cur.title}</h2>
@@ -331,9 +331,14 @@ javascript 在联系页面  用于表单的验证 不需要可删除
 内容图片可修改 可以改成多种主题网页 
 个人网主页模板作品下载后可自行修改，所看到的文字都可以编辑修改，图片可直接在文件夹中替换覆盖。可使用Dreamweaver、Notepad++、HBuilder等很多软件修改为信息。
               </div>
-              <div className='css-eyizcg'>
-                <img src={cur.img} alt="" />
-              </div>
+              <Carousel autoplay>
+                <div className='css-eyizcg'>
+                  <img src={cur.img} alt="" />
+                </div>
+                <div className='css-eyizcg'>
+                  <img src={cur.img} alt="" />
+                </div>
+              </Carousel>
             </>,
           }, {
             label: `演示图集`,
