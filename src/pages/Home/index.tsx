@@ -26,10 +26,15 @@ const HomePage: React.FC = () =>
           borderRadius: 10
         }}
         layout="vertical"
-        defaultCollapsed={true}
+        defaultCollapsed={false}
         onReset={() =>
         {
-          queryList({})
+          setLoading(true)
+          setTimeout(() =>
+          {
+            queryList({})
+            setLoading(false)
+          }, 500)
         }}
         onFinish={async (values) =>
         {
@@ -172,14 +177,13 @@ const HomePage: React.FC = () =>
             }} />
           }
         </div>
-        <FloatButton.Group shape="circle">
-          <FloatButton icon={<CustomerServiceOutlined />} tooltip={<div>联系客服</div>} />
-          <FloatButton.BackTop visibilityHeight={0} tooltip={<div>回到顶部</div>} />
-        </FloatButton.Group>
       </Spin>
       <ModalForm
         onOpenChange={setDrawerVisit}
         title="网页详情"
+        modalProps={{
+          destroyOnClose: true
+        }}
         open={drawerVisit}
         request={async () =>
         {
@@ -352,6 +356,10 @@ javascript 在联系页面  用于表单的验证 不需要可删除
           }]}
         />
       </ModalForm>
+      <FloatButton.Group shape="circle">
+        <FloatButton icon={<CustomerServiceOutlined />} tooltip={<div>联系客服</div>} />
+        <FloatButton.BackTop visibilityHeight={0} tooltip={<div>回到顶部</div>} />
+      </FloatButton.Group>
     </>
   );
 };

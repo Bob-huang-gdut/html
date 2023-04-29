@@ -7,18 +7,14 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: 'html',
+    title: '网页成品',
     locale: false,
   },
   routes: [
     {
       path: '/',
-      redirect: '/home',
-    },
-    {
-      path: '/home',
-      name: '网页作业资源',
-      component: './Home',
+      name: '网页资源',
+      component: './Home'
     },
     {
       name: '常见问题',
