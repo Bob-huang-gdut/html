@@ -1,45 +1,45 @@
 import { useModel } from '@umijs/max';
-import { Card, Col, Row } from 'antd';
+import { Card, Col, Row, Spin, FloatButton, Empty } from 'antd';
 import {
-  ProFormRadio,
   ProFormSelect,
   QueryFilter,
 } from '@ant-design/pro-components';
 import './index.less';
+import { useState } from 'react';
+import { CustomerServiceOutlined } from '@ant-design/icons';
 
 const HomePage: React.FC = () =>
 {
-  const { list } = useModel('global');
+  const { list, queryList } = useModel('global');
+  const [loading, setLoading] = useState(false);
 
-  console.log('%c⧭', 'color: #ff0000', list);
   return (
-    <div>
+    <>
       <QueryFilter
         style={{
-          backgroundColor: '#fff'
+          backgroundColor: '#fff',
+          borderRadius: 10
         }}
         layout="vertical"
-        initialValues={{
-          type: 'all',
-          page: 'all',
-          technology: 'all',
-          expense: 'all'
+        defaultCollapsed={true}
+        onReset={() =>
+        {
+          queryList({})
         }}
-        collapsed={false}
         onFinish={async (values) =>
         {
-          console.log('%c⧭', 'color: #00e600', values);
-          return false
+          setLoading(true)
+          setTimeout(() =>
+          {            
+            queryList(values)
+            setLoading(false)
+          }, 500)
         }}
       >
-        <ProFormRadio.Group
+        <ProFormSelect
           name="type"
-          label="查询频度"
-          options={[
-            {
-              value: 'all',
-              label: '全部',
-            },
+          label="站点分类"
+          request={async () => [
             {
               value: 'blog',
               label: '个人博客',
@@ -93,28 +93,28 @@ const HomePage: React.FC = () =>
               label: '其它',
             },
           ]}
+          placeholder="选择分类"
         />
         <ProFormSelect
           name="page"
           label="页数"
           request={async () => [
-            { label: '全部', value: 'all' },
             { label: '1页', value: '1' },
             { label: '2页', value: '2' },
             { label: '3页', value: '3' },
             { label: '4页', value: '4' },
-            { label: '5页', value: '4' },
-            { label: '6页-10页', value: '6-10' },
-            { label: '11页-15页', value: '11-15' },
-            { label: '15页以上', value: '16-99' },
+            { label: '5页', value: '5' },
+            { label: '6页', value: '6' },
+            // { label: '6页-10页', value: '6-10' },
+            // { label: '11页-15页', value: '11-15' },
+            // { label: '15页以上', value: '16-99' },
           ]}
-          placeholder="请选择一项技术"
+          placeholder="选择页数"
         />
         <ProFormSelect
           name="technology"
           label="技术"
           request={async () => [
-            { label: '全部', value: 'all' },
             { label: 'html', value: '1' },
             { label: 'html+css', value: '2' },
             { label: 'html+css+javascript', value: '3' },
@@ -126,39 +126,47 @@ const HomePage: React.FC = () =>
           name="expense"
           label="费用"
           request={async () => [
-            { label: '全部', value: 'all' },
-            { label: '免费', value: 'free' },
-            { label: '10-20', value: '10-20' },
-            { label: '20-30', value: '20-30' },
-            { label: '31-50', value: '31-50' },
-            { label: '51-100', value: '51-100' },
-            { label: '100-999', value: '100-999' },
+            { label: '免费', value: '0' },
+            { label: '10', value: '10' },
+            { label: '20', value: '20' },
+            { label: '30', value: '30' },
           ]}
-          placeholder="请选择一项技术"
+          placeholder="选择技术"
         />
       </QueryFilter>
-      <div style={{
-        marginTop: '20px',
-        backgroundColor: '#fff',
-        padding: '20px',
-        minHeight: '300px'
-      }}>
-        <Row gutter={[16, 16]}>
+      <Spin tip="加载中" size="large" spinning={loading}>
+        <div style={{
+          marginTop: '20px',
+          backgroundColor: '#fff',
+          padding: '20px',
+          minHeight: '400px',
+          borderRadius: 10,
+        }}>
           {
-            list.map((item: any, index: number) =>
-            {
-              return (<Col span={6} key={index}>
-                <Card title={item.title} bordered={false}>
-                  <div className='css-eyizcg'>
-                    <img src={item.img} alt="" />
-                  </div>
-                </Card>
-              </Col>)
-            })
+            list.length ? <Row gutter={[16, 16]}>
+              {
+                list.map((item: any, index: number) =>
+                {
+                  return (<Col span={6} key={index}>
+                    <Card title={item.title} bordered={false}>
+                      <div className='css-eyizcg'>
+                        <img src={item.img} alt="" />
+                      </div>
+                    </Card>
+                  </Col>)
+                })
+              }
+            </Row> : <Empty description="暂无资源" style={{
+              marginTop: '100px'
+            }}/>
           }
-        </Row>
-      </div>
-    </div>
+        </div>
+        <FloatButton.Group shape="circle">
+          <FloatButton icon={<CustomerServiceOutlined />} tooltip={<div>联系客服</div>} />
+          <FloatButton.BackTop visibilityHeight={0} tooltip={<div>回到顶部</div>} />
+        </FloatButton.Group>
+      </Spin>
+    </>
   );
 };
 

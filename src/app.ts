@@ -13,7 +13,8 @@ export const layout = () => {
       locale: false,
     },
     pagetHeader: null,
-    // fixSiderbar: true,
+    menuHeaderRender: undefined,
+    fixSiderbar: true,
     layout: 'side',
     contentStyle: {
       // backgroundColor: 'rgb(245, 247, 250)',

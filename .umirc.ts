@@ -17,7 +17,7 @@ export default defineConfig({
     },
     {
       path: '/home',
-      name: '首页',
+      name: '网页作业资源',
       component: './Home',
     },
     {

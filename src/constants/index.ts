@@ -3,15 +3,27 @@ export const DEFAULT_NAME = 'Umi Max';
 export const LIST = [
   {
     "title": "Button 按钮",
-    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BrFMQ5s7AAQAAAAAAAAAAAAADrJ8AQ/original"
+    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BrFMQ5s7AAQAAAAAAAAAAAAADrJ8AQ/original",
+    "type": "blog",
+    "page": '4',
+    "technology": '1',
+    "expense": '0'
   },
   {
     "title": "Icon 图标",
-    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original"
+    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original",
+    "type": "food",
+    "page": '6',
+    "technology": '2',
+    "expense": '10'
   },
   {
     "title": "Typography 排版",
-    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original"
+    "img": "https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original",
+    "type": "school",
+    "page": '16',
+    "technology": '3',
+    "expense": '20'
   },
   {
     "title": "Divider 分割线",
