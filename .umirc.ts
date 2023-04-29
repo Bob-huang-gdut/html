@@ -7,7 +7,8 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '静态网站成品',
+    title: 'html',
+    locale: false,
   },
   routes: [
     {
@@ -15,20 +16,20 @@ export default defineConfig({
       redirect: '/home',
     },
     {
-      name: '首页',
       path: '/home',
+      name: '首页',
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
+      name: '常见问题',
+      path: '/faq',
+      component: './Faq',
     },
     {
-        name: ' CRUD 示例',
-        path: '/table',
-        component: './Table',
-    },
+      name: '网页定制',
+      path: '/customize',
+      component: './Customize',
+    }
   ],
   npmClient: 'pnpm',
 });
