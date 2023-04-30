@@ -1,4 +1,5 @@
 import { defineConfig } from '@umijs/max';
+import routes from './routes';
 
 export default defineConfig({
   antd: {},
@@ -10,23 +11,7 @@ export default defineConfig({
     title: '网页成品',
     locale: false,
   },
-  routes: [
-    {
-      path: '/',
-      name: '网页资源',
-      component: './Home'
-    },
-    {
-      name: '常见问题',
-      path: '/faq',
-      component: './Faq',
-    },
-    {
-      name: '网页定制',
-      path: '/customize',
-      component: './Customize',
-    }
-  ],
+  routes,
   npmClient: 'pnpm',
 });
 
