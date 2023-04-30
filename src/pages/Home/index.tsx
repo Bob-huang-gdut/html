@@ -1,5 +1,5 @@
 import { useModel } from '@umijs/max';
-import { Card, Col, Row, Spin, Tabs, Image, Carousel, FloatButton, Empty, Divider } from 'antd';
+import { Card, Col, Row, Spin, Tabs, Image, Carousel, Empty, Divider } from 'antd';
 import
   {
     ProFormSelect,
@@ -9,7 +9,7 @@ import
   } from '@ant-design/pro-components';
 import './index.less';
 import { useState } from 'react';
-import { CustomerServiceOutlined } from '@ant-design/icons';
+import FloatBtnGroup from '@/components/FloatBtnGroup';
 
 const HomePage: React.FC = () =>
 {
@@ -356,10 +356,7 @@ javascript 在联系页面  用于表单的验证 不需要可删除
           }]}
         />
       </ModalForm>
-      <FloatButton.Group shape="circle">
-        <FloatButton icon={<CustomerServiceOutlined />} tooltip={<div>联系客服</div>} />
-        <FloatButton.BackTop visibilityHeight={0} tooltip={<div>回到顶部</div>} />
-      </FloatButton.Group>
+      <FloatBtnGroup />
     </>
   );
 };

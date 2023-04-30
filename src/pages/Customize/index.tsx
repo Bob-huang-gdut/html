@@ -1,6 +1,5 @@
-import { CustomerServiceOutlined } from '@ant-design/icons';
-import { Row, Col, Card, FloatButton, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Row, Col, Card, Table } from 'antd';
+import FloatBtnGroup from '@/components/FloatBtnGroup';
 import './index.less';
 
 const data: any[] = [
@@ -60,7 +59,7 @@ const columns = [{
   key: '按要求定制开发',
 }]
 
-const AccessPage: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <>
       <Row gutter={[16, 16]}>
@@ -104,12 +103,9 @@ const AccessPage: React.FC = () => {
           </Card>
         </Col>
       </Row>
-      <FloatButton.Group shape="circle">
-        <FloatButton icon={<CustomerServiceOutlined />} tooltip={<div>联系客服</div>} />
-        <FloatButton.BackTop visibilityHeight={0} tooltip={<div>回到顶部</div>} />
-      </FloatButton.Group>
+      <FloatBtnGroup />
     </>
   );
 };
 
-export default AccessPage;
+export default Page;
