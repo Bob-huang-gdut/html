@@ -8,18 +8,16 @@ export async function getInitialState(): Promise<{ name: string }> {
 
 export const layout = () => {
   return {
-    // logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
+    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,
     },
     pagetHeader: null,
     menuHeaderRender: undefined,
     fixSiderbar: true,
-    layout: 'side',
+    layout: 'top',
     contentStyle: {
-      // backgroundColor: 'rgb(245, 247, 250)',
-      minHeight: '100vh',
-      // padding: 0
+      minHeight: '100vh'
     }
   };
 };

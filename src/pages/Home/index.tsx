@@ -1,5 +1,6 @@
 import { useModel } from '@umijs/max';
 import { Card, Col, Row, Spin, Tabs, Image, Carousel, Empty, Divider } from 'antd';
+
 import
   {
     ProFormSelect,
@@ -337,7 +338,7 @@ javascript 在联系页面  用于表单的验证 不需要可删除
               </div>
               <Carousel autoplay>
                 <div className='css-eyizcg'>
-                  <Image width={200} src={cur.img} />
+                  <Image width={200} src={cur.img?.replace('_s', '')} />
                 </div>
                 <div className='css-eyizcg'>
                   <Image width={200} src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
@@ -349,7 +350,7 @@ javascript 在联系页面  用于表单的验证 不需要可删除
             key: '2',
             children: <>
               <Image.PreviewGroup>
-                <Image width={200} src={cur.img} />
+                <Image width={200} src={cur.img?.replace('_s', '')} />
                 <Image width={200} src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
               </Image.PreviewGroup>
             </>,
