@@ -16,6 +16,12 @@ const routes = [
     path: '/customize',
     component: './Customize',
     icon: 'RedEnvelopeTwoTone'
+  },
+  {
+    name: '计算器',
+    path: '/calculator',
+    component: './Calculator',
+    icon: 'RedEnvelopeTwoTone'
   }
 ]
 export default routes
